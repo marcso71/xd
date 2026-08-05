@@ -3,195 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Alison ✨</title>
-    <!-- Fuentes bonitas de Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <title>Una cartita especial para ti 🎀💖</title>
     <style>
-        /* --- Estilos Generales y Fondo Animado --- */
-        body {
-            background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
-            font-family: 'Poppins', sans-serif;
-            height: 100vh;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Estilo y colores icónicos de Hello Kitty: Rosas tiernos y blancos */
+            background: linear-gradient(135deg, #ffc0cb 0%, #ffb6c1 50%, #ff69b4 100%);
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #333;
             overflow: hidden;
             position: relative;
         }
 
-        /* Animación de los corazones flotantes */
-        .heart {
+        /* Lazos y corazones flotantes de fondo animados */
+        .floating-elements {
             position: absolute;
-            top: -10%;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 20px;
-            user-select: none;
-            pointer-events: none;
-            animation: fall linear infinite;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
             z-index: 1;
+            pointer-events: none;
         }
 
-        @keyframes fall {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        .element {
+            position: absolute;
+            font-size: 1.8rem;
+            animation: floatUp 6s linear infinite;
         }
 
-        /* --- La Tarjeta Central --- */
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.15), 0 0 0 2px rgba(255, 255, 255, 0.5);
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .container {
             text-align: center;
-            max-width: 450px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 45px 35px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.3);
+            max-width: 480px;
             width: 90%;
             position: relative;
-            z-index: 10;
-            backdrop-filter: blur(5px);
+            z-index: 2;
+            border: 4px solid #ff69b4;
+            animation: fadeIn 0.8s ease-in-out;
         }
 
-        /* Título: Para Alison */
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            color: #c72185;
-            font-size: 45px;
+        @keyframes fadeIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .decorative-icon {
+            font-size: 3.5rem;
             margin-bottom: 10px;
-            margin-top: 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: bounce 1.5s infinite alternate;
         }
 
-        .subtitulo {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-8px); }
         }
 
-        /* Área del mensaje */
-        .mensaje-contenedor {
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
+        h1 {
+            color: #ff1493;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
         }
 
         p {
-            font-size: 18px;
-            color: #444;
-            line-height: 1.6;
-            margin: 0;
-            transition: opacity 0.5s ease-in-out;
-            opacity: 1;
-        }
-        
-        p.fade-out {
-            opacity: 0;
+            color: #555;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            min-height: 80px;
         }
 
-        /* El Botón */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
         button {
-            background: linear-gradient(45deg, #db2777, #ec4899);
-            color: white;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: bold;
             border: none;
-            padding: 15px 40px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 50px;
+            border-radius: 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-            box-shadow: 0 5px 15px rgba(219, 39, 119, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(219, 39, 119, 0.6);
-            background: linear-gradient(45deg, #ec4899, #db2777);
+            transform: scale(1.08);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
 
-        button:active {
-            transform: translateY(1px);
+        #nextBtn {
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+            color: white;
         }
 
-        @media (max-width: 600px) {
-            .card { padding: 30px; }
-            h1 { font-size: 36px; }
-            p { font-size: 16px; }
+        #siBtn {
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+            color: white;
+        }
+
+        #noBtn {
+            background: linear-gradient(135deg, #d8bfd8 0%, #ba55d3 100%);
+            color: white;
+        }
+
+        #despuesBtn {
+            background: linear-gradient(135deg, #ffb6c1 0%, #ff69b4 100%);
+            color: white;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        #responseModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            padding: 45px 35px;
+            border-radius: 30px;
+            text-align: center;
+            animation: popUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-width: 90%;
+            border: 4px solid #ff1493;
+            box-shadow: 0 20px 40px rgba(255, 20, 147, 0.3);
+        }
+
+        .modal-content h2 {
+            color: #ff1493;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .emoji-display {
+            font-size: 4.5rem;
+            margin-top: 15px;
+            animation: pulse 1s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.15); }
+        }
+
+        @keyframes popUp {
+            0% { transform: scale(0.4); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-    <div id="fondo-corazones"></div>
+    <!-- Fondo con elementos animados de Hello Kitty (lazos y corazones) -->
+    <div class="floating-elements" id="floatingElements"></div>
 
-    <div class="card">
-        <h1>Para: Alison</h1>
-        <div class="subtitulo">Un detalle porque te amo</div>
-        
-        <div class="mensaje-contenedor">
-            <p id="mensaje">Presiona el botón...</p>
+    <div class="container" id="mainContainer">
+        <div class="decorative-icon" id="mainIcon">🎀</div>
+        <h1 id="mainTitle">Hola, hermosa...</h1>
+        <p id="mainText">Quería tomarme un momento súper especial para decirte algo que se ha vuelto muy importante para mí...</p>
+        <div class="buttons" id="buttonContainer">
+            <button id="nextBtn">Continuar 💌</button>
         </div>
-        
-        <button id="boton" onclick="siguienteMensaje()">Siguiente ✨</button>
+    </div>
+
+    <div id="responseModal" class="hidden">
+        <div class="modal-content">
+            <h2 id="modalText"></h2>
+            <div class="emoji-display" id="modalEmoji"></div>
+        </div>
     </div>
 
     <script>
-        // Mensajes centrados puramente en el afecto y la distancia
-        const mensajes = [
-            "Hola bb. Quería recordarte lo muchísimo que te quiero, sin importar los kilómetros que nos separen.",
-            "siempre al despetar o durante el dia espero cada mensaje tuyo porque hace mi dia feliz.",
-            "tambien queria recordarte que siempre seras mi pensamiento favorito antes de dormir, en mi sueños y el primero al despertar.",
-            "Eres una persona sumamente especial para mí, con una luz única que siempre logra alegrarme.",
-            "Te quiero con todo mi corazón BB. Gracias por estar siempre, incluso a la distancia. 💖"
-        ];
-
-        let indice = 0;
-        const parrafoMensaje = document.getElementById("mensaje");
-        const boton = document.getElementById("boton");
-
-        function siguienteMensaje() {
-            parrafoMensaje.classList.add('fade-out');
-
-            setTimeout(() => {
-                if (indice < mensajes.length) {
-                    parrafoMensaje.innerText = mensajes[indice];
-                    indice++;
-                } else {
-                    parrafoMensaje.innerHTML = "Te quiero muchísimo bb. Siempre te amare sin importar que. ✨<br><br><strong>Con todo mi amor.</strong>";
-                    boton.style.display = "none";
-                }
-                parrafoMensaje.classList.remove('fade-out');
-            }, 500);
+        // Generar lazos y corazones flotantes de Hello Kitty automáticamente
+        const elementsContainer = document.getElementById('floatingElements');
+        const symbols = ['🎀', '💖', '🍎', '✨', '🐾', '🌸', '🤍'];
+        
+        for (let i = 0; i < 22; i++) {
+            const el = document.createElement('div');
+            el.classList.add('element');
+            el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            el.style.left = `${Math.random() * 100}%`;
+            el.style.top = `${Math.random() * 100}%`;
+            el.style.fontSize = `${Math.random() * 1.5 + 1}rem`;
+            el.style.animationDuration = `${Math.random() * 4 + 4}s`;
+            el.style.animationDelay = `${Math.random() * 3}s`;
+            elementsContainer.appendChild(el);
         }
 
-        function crearCorazon() {
-            const corazon = document.createElement('div');
-            corazon.classList.add('heart');
-            corazon.innerHTML = '&#9829;';
-            
-            corazon.style.left = Math.random() * 100 + 'vw';
-            corazon.style.animationDuration = Math.random() * 6 + 4 + 's';
-            corazon.style.fontSize = Math.random() * 15 + 15 + 'px';
-            corazon.style.opacity = Math.random() * 0.5 + 0.2;
+        const mainIcon = document.getElementById('mainIcon');
+        const mainTitle = document.getElementById('mainTitle');
+        const mainText = document.getElementById('mainText');
+        const buttonContainer = document.getElementById('buttonContainer');
+        
+        const responseModal = document.getElementById('responseModal');
+        const modalText = document.getElementById('modalText');
+        const modalEmoji = document.getElementById('modalEmoji');
 
-            document.getElementById('fondo-corazones').appendChild(corazon);
+        let paso = 1;
 
-            setTimeout(() => {
-                corazon.remove();
-            }, 10000);
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (paso === 1) {
+
+                paso = 2;
+            } else if (paso === 2) {
+                mainIcon.textContent = "🍎";
+                mainTitle.textContent = "Eres muy especial";
+                mainText.textContent = "Tienes una forma de ser tan bonita que ilumina todo a tu alrededor, al igual que las cosas que más me gustan.";
+                paso = 3;
+            } else if (paso === 3) {
+                mainIcon.textContent = "🐾";
+                mainTitle.textContent = "Pienso mucho en ti";
+                mainText.textContent = "sin importar el dia jamas sales de mi mente, recordarte o saber de ti logra alegrarme por completo el corazón.";
+                paso = 4;
+            } else if (paso === 4) {
+    
+                paso = 5;
+            } else if (paso === 5) {
+                mainIcon.textContent = "💖";
+                mainTitle.textContent = "Un detalle con mucho amor";
+                mainText.textContent = "Estuve pensando mucho en cómo dar este paso, porque de verdad significas muchísimo para mí.";
+                paso = 6;
+            } else if (paso === 6) {
+                mainIcon.textContent = "🎀";
+                mainTitle.textContent = "¿Quieres ser la enebe de este pobre loco?";
+                mainText.textContent = "Prometo darte los días más bonitos del mundo con la ternura de un lacito.";
+                
+                // Cambiar los botones a las 3 opciones finales con emojis de Hello Kitty / temáticos
+                buttonContainer.innerHTML = `
+                    <button id="siBtn">Sí 🎀</button>
+                    <button id="noBtn">No 🥺</button>
+                    <button id="despuesBtn">Después ⏳</button>
+                `;
+
+                // Agregar los eventos a los nuevos botones
+                document.getElementById('siBtn').addEventListener('click', () => mostrarMensaje('🎀'));
+                document.getElementById('noBtn').addEventListener('click', () => mostrarMensaje('🥺'));
+                document.getElementById('despuesBtn').addEventListener('click', () => mostrarMensaje('🍎'));
+            }
+        });
+
+        function mostrarMensaje(emoji) {
+            modalText.textContent = "Envía este emoji para saber tu respuesta";
+            modalEmoji.textContent = emoji;
+            responseModal.classList.remove('hidden');
         }
-
-        setInterval(crearCorazon, 300);
     </script>
-
 </body>
 </html>
